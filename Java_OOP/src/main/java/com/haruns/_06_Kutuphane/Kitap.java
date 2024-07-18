@@ -5,7 +5,6 @@ public class Kitap {
 	
 	private String ISBN;
 	private String ad;
-	private double fiyat;
 	private String tur;
 	private int sayfaSayisi;
 	private int adet;
@@ -18,13 +17,12 @@ public class Kitap {
 	public Kitap() {
 	}
 	
-	public Kitap(String ISBN, String ad, double fiyat, String tur, int sayfaSayisi, int adet, String yazar, String yayinEvi, String yayinYili) {
+	public Kitap(String ISBN, String ad, String tur, int sayfaSayisi, String yazar, String yayinEvi, String yayinYili) {
 		this.ISBN = ISBN;
 		this.ad = ad;
-		this.fiyat = fiyat;
 		this.tur = tur;
 		this.sayfaSayisi = sayfaSayisi;
-		this.adet = adet;
+		this.adet = 1;
 		this.yazar = yazar;
 		this.yayinEvi = yayinEvi;
 		this.yayinYili = yayinYili;
@@ -48,13 +46,7 @@ public class Kitap {
 		this.ad = ad;
 	}
 	
-	public double getFiyat() {
-		return fiyat;
-	}
 	
-	public void setFiyat(double fiyat) {
-		this.fiyat = fiyat;
-	}
 	
 	public String getTur() {
 		return tur;
@@ -110,7 +102,7 @@ public class Kitap {
 	public String toString() {
 		return "Kitap{" + "ISBN='" + getISBN() +
 				'\'' + ", ad='" + getAd() +
-				'\'' + ", fiyat=" + getFiyat() + ", tur='" + getTur() +
+				'\'' + ", tur='" + getTur() +
 				'\'' + ", sayfaSayisi=" + getSayfaSayisi() +
 				", adet=" + getAdet() +
 				", yazar='" + getYazar() +

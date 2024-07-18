@@ -14,6 +14,8 @@ oduncAldıgıKitapSayisi
 
  */
 public class Uye {
+	private static int uyeIndex;
+	
 	private int uyeNo;
 	private String ad;
 	private String soyAd;
@@ -28,9 +30,9 @@ public class Uye {
 	public Uye() {
 	}
 	
-	public Uye(int uyeNo, String ad, String soyAd, String telNo, String dTarih, String adres, String tcNo,
-	           String kayitTarihi, int puan, int oduncAldigiKitapSayisi) {
-		this.uyeNo = uyeNo;
+	public Uye( String ad, String soyAd, String telNo, String dTarih, String adres, String tcNo,
+	           String kayitTarihi) {
+		this.uyeNo = ++uyeIndex;
 		this.ad = ad;
 		this.soyAd = soyAd;
 		this.telNo = telNo;
@@ -38,8 +40,8 @@ public class Uye {
 		this.adres = adres;
 		this.tcNo = tcNo;
 		this.kayitTarihi = kayitTarihi;
-		this.puan = puan;
-		this.oduncAldigiKitapSayisi = oduncAldigiKitapSayisi;
+		this.puan = 100;
+		this.oduncAldigiKitapSayisi = 0;
 	}
 	
 	public int getUyeNo() {
@@ -124,7 +126,7 @@ public class Uye {
 	
 	@Override
 	public String toString() {
-		return "com.haruns._06_Kutuphane.Uye{" + "uyeNo=" + getUyeNo() +
+		return "Uye{" + "uyeNo=" + getUyeNo() +
 				", ad='" + getAd() + '\'' +
 				", soyAd='" + getSoyAd() + '\'' +
 				", telNo='" + getTelNo() + '\'' +
