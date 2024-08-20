@@ -24,7 +24,7 @@ public class Odunc {
 		this.oduncNo = ++oduncIndex;
 		this.uye = uye;
 		this.kitap = kitap;
-		this.teslimTarihi = teslimTarihi;
+		this.oduncAlmaTarihi=oduncAlmaTarihi;
 	}
 	
 	public int getOduncNo() {
@@ -69,7 +69,7 @@ public class Odunc {
 	
 	@Override
 	public String toString() {
-		return "com.haruns._06_Kutuphane.Odunc{" + "oduncNo=" + getOduncNo() +
+		return "Odunc{" + "oduncNo=" + getOduncNo() +
 				", uye=" + getUye() + ", kitap=" + getKitap() +
 				", oduncAlmaTarihi='" + getOduncAlmaTarihi() + '\'' +
 				", teslimTarihi='" + getTeslimTarihi() + '\'' + '}';

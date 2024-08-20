@@ -1,0 +1,13 @@
+List1 eleman sayısı : 10000
+List2 eleman sayısı : 10000
+Threadsiz liste geçen süre : 9_730_401
+
+
+List1 eleman sayısı : 10000
+List2 eleman sayısı : 10000
+Vector Threadli liste geçen süre : 12_191_399
+
+
+List1 eleman sayısı : 10000
+List2 eleman sayısı : 10000
+Vector Threadli liste geçen süre : 13_580_900
