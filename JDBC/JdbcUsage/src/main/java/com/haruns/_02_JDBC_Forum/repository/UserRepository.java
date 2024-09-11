@@ -4,6 +4,7 @@ package com.haruns._02_JDBC_Forum.repository;
 import com.haruns._02_JDBC_Forum.entity.User;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -53,21 +54,35 @@ public class UserRepository implements ICrud<User> {
 	}
 	
 	public boolean existByUsername(String username) {
-		List<User> users = findAll();
-		if (users.isEmpty()) return true;
-		for (User user : users) {
-			if (user.getUsername().equals(username)) {
-				System.out.println("Bu kullanıcı adı sistemde kayıtlı. Lütfen başka bir kullanıcı adı giriniz");
-				return false;
+		String sql="SELECT * FROM tblusers WHERE username='"+username+"'";
+		Optional<ResultSet> resultSet = databaseHelper.executeQuery(sql);
+		if (resultSet.isPresent()){
+			try {
+				return resultSet.get().next();
+			}
+			catch (SQLException e) {
+				System.out.println("existByUserName metodu çalışırken hata oluştu..."+e.getMessage());
 			}
 		}
-		return true;
+		return false;
 	}
 	public Optional<User> doLogin(String username,String password){
-		List<User> users = findAll();
-		for (User user:users){
-			if (user.getUsername().equals(username)&&user.getPassword().equals(password)){
-				return Optional.of(user);
+		String sql="SELECT * FROM tblusers WHERE username='"+username+"' AND password='"+password+"'";
+		Optional<ResultSet> resultSet = databaseHelper.executeQuery(sql);
+		if (resultSet.isPresent()){
+			try {
+				ResultSet rs =  resultSet.get();
+				if (rs.next()){
+					int rsId = rs.getInt("id");
+					String rsAd = rs.getString("ad");
+					String rsSoyad = rs.getString("soyad");
+					String rsUsername = rs.getString("username");
+					String rsPassword = rs.getString("password");
+					return Optional.of(new User(rsId,rsAd,rsSoyad,rsUsername,rsPassword));
+				}
+			}
+			catch (SQLException e) {
+				System.out.println("existByUserName metodu çalışırken hata oluştu..."+e.getMessage());
 			}
 		}
 		return Optional.empty();

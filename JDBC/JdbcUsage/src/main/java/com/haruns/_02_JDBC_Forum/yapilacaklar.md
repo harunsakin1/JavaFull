@@ -22,6 +22,17 @@ Giriş Yap:
     - Password giriniz : 
     - Eğer giriş bilgileri doğru ise o zaman başka bir ekrana geçiş yapılır.
 
+MainController
+
 *************
 Hoşgeldin, ad, soyad
 *************
+1-Postları görüntüle
+2-Post Paylaş
+3-Kendi postlarını görüntüle
+4-Kullanıcıları listele
+0-Logout
+
+Yapılacaklar:
+Entity kısmında Post(id,user_id,baslik,icerik,paylasimTarihi)
+PostRepository(Crud işlemleri-findAll,save,)
